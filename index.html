@@ -86,6 +86,10 @@ function myFunction(response) {
   <body ng-app="app" animation="slide-left-right-ios7">
   <div>
     <div>
+	<ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
         <ion-nav-bar class="bar-stable">
             <ion-nav-back-button></ion-nav-back-button>
         </ion-nav-bar>
