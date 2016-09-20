@@ -157,12 +157,39 @@ NOTE:
          </script>
 		<div id="home">
         <img src="icon.png" width="128" height="128">
-<h2>Teste plugin push </h2>
-        <div id="app-status-div">
-			<ul id="app-status-ul">
-					<li>Cordova PushNotification Plugin Demo</li>
-				</ul>
-			</div>
-		</div>
+<h1>Customers</h1>
+<div id="id01"></div>
+
+<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "http://www.w3schools.com/website/customers_mysql.php";
+
+xmlhttp.onreadystatechange=function() {
+    if (this.readyState == 4 && this.status == 200) {
+        myFunction(this.responseText);
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(response) {
+    var arr = JSON.parse(response);
+    var i;
+    var out = "<table>";
+
+    for(i = 0; i < arr.length; i++) {
+        out += "<tr><td>" +
+        arr[i].Name +
+        "</td><td>" +
+        arr[i].City +
+        "</td><td>" +
+        arr[i].Country +
+        "</td></tr>";
+    }
+    out += "</table>";
+    document.getElementById("id01").innerHTML = out;
+}
+</script>
+
     </body>
 </html>
